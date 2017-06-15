@@ -14,6 +14,10 @@ public:
     Pomodoro(const QObject* parent = NULL);
 
 
+public slots:
+    void nextStatus();
+
+
 private:
     void changeStatus(PomodoroStatus);
 

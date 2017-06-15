@@ -10,3 +10,8 @@ void Pomodoro::changeStatus(PomodoroStatus newStatus)
     status = newStatus;
     emit statusChanged(newStatus);
 }
+
+void Pomodoro::nextStatus()
+{
+    //Go to the next state.
+}
