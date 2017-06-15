@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMouseEvent>
+#include "pomodoro.h"
 
 
 namespace Ui {
@@ -33,12 +34,14 @@ protected:
 private:
     void readSettings();
     void setupConnections();
+    void initPomodoro();
 
 
 private:
     Ui::MainWindow *ui;
     QPoint mLastMousePosition;
     bool mMoving;
+    Pomodoro* pomodoro;
 };
 
 #endif // MAINWINDOW_H

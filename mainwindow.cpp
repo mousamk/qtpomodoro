@@ -40,6 +40,11 @@ void MainWindow::onActionButtonClick()
     qDebug() << "Test";
 }
 
+void MainWindow::initPomodoro()
+{
+    pomodoro = new Pomodoro(this);
+}
+
 void MainWindow::mousePressEvent(QMouseEvent* event)
 {
     if(event->button() == Qt::LeftButton)
