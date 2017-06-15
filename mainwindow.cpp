@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     readSettings();
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    initPomodoro();
     setupConnections();
 }
 
@@ -21,6 +22,13 @@ MainWindow::~MainWindow()
 void MainWindow::setupConnections()
 {
     connect(ui->btnAction, SIGNAL(clicked()), this, SLOT(onActionButtonClick()));
+    connect(pomodoro, SIGNAL(timeUpdated(int,int)), this, SLOT(updateTime(int,int)));
+}
+
+void MainWindow::updateTime(int min, int sec)
+{
+    ui->lblMinute->setText(QString::number(min));
+    ui->lblSecond->setText(QString::number(sec));
 }
 
 void MainWindow::readSettings()
