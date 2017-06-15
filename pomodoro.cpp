@@ -3,6 +3,18 @@
 
 Pomodoro::Pomodoro(const QParent* parent) : QObject(parent)
 {
+    initTimer();
+    setupConnections();
+}
+
+void Pomodoro::initTimer()
+{
+    timer = new QTimer(this);
+}
+
+void Pomodoro::setupConnections()
+{
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerTimeout());
 }
 
 void Pomodoro::changeStatus(PomodoroStatus newStatus)
@@ -47,6 +59,11 @@ void Pomodoro::startBreak()
 }
 
 void Pomodoro::finishRun()
+{
+    //...
+}
+
+void Pomodoro::timerTimeout()
 {
     //...
 }

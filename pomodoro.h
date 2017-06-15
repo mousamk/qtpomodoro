@@ -2,6 +2,7 @@
 #define POMODORO_H
 
 #include <QObject>
+#include <QTimer>
 #include "status.h"
 
 
@@ -16,9 +17,12 @@ public:
 
 public slots:
     void goNextState();
+    void timerTimeout();
 
 
 private:
+    void initTimer();
+    void setupConnections();
     void changeStatus(PomodoroStatus);
     void startRun();
     void finishRun();
@@ -34,6 +38,7 @@ signals:
 private:
     PomodoroStatus status = WaitingToStart;
     int roundsDone = 0;
+    QTimer* timer = NULL;
 };
 
 
