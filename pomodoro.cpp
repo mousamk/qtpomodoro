@@ -11,7 +11,42 @@ void Pomodoro::changeStatus(PomodoroStatus newStatus)
     emit statusChanged(newStatus);
 }
 
-void Pomodoro::nextStatus()
+void Pomodoro::goNextState()
 {
-    //Go to the next state.
+    switch (status)
+    {
+    case WaitingToStart:
+    case WaitingToRun:
+        startRun();
+        break;
+    case Running:
+        finishRun();
+        break;
+    case WaitingToBreak:
+        startBreak();
+        break;
+    case BreakRunning:
+        finishBreak();
+        break;
+    }
+}
+
+void Pomodoro::startRun()
+{
+    //...
+}
+
+void Pomodoro::finishRun()
+{
+    //...
+}
+
+void Pomodoro::startBreak()
+{
+    //...
+}
+
+void Pomodoro::finishRun()
+{
+    //...
 }

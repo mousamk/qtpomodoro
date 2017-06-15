@@ -15,11 +15,15 @@ public:
 
 
 public slots:
-    void nextStatus();
+    void goNextState();
 
 
 private:
     void changeStatus(PomodoroStatus);
+    void startRun();
+    void finishRun();
+    void startBreak();
+    void finishBreak();
 
 
 signals:
