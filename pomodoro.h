@@ -24,6 +24,7 @@ private:
 
 signals:
     void statusChanged(PomodoroStatus);
+    void timeUpdated(int min, int sec);
 
 
 private:
