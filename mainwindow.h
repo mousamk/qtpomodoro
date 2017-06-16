@@ -36,6 +36,7 @@ private:
     void readSettings();
     void setupConnections();
     void initPomodoro();
+    void initViews();
 
 
 private:
