@@ -51,6 +51,11 @@ PomodoroStatus Pomodoro::getStatus()
     return status;
 }
 
+State* Pomodoro::getState()
+{
+    return state;
+}
+
 void Pomodoro::goNextState()
 {
     switch (status)

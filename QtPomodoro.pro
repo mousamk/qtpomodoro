@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     settings.cpp \
-    pomodoro.cpp
+    pomodoro.cpp \
+    state.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
     status.h \
-    pomodoro.h
+    pomodoro.h \
+    state.h
 
 FORMS    += mainwindow.ui

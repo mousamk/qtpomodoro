@@ -6,6 +6,9 @@
 #include "status.h"
 
 
+class State;
+
+
 class Pomodoro: public QObject
 {
     Q_OBJECT
@@ -15,6 +18,7 @@ public:
     Pomodoro(QObject* parent = NULL);
     bool isRunning();
     PomodoroStatus getStatus();
+    State* getState();
 
 
 public slots:
@@ -45,6 +49,10 @@ private:
     int roundsDone = 0;
     QTimer* timer = NULL;
     qint64 startTime = 0;
+    State* state = NULL;
+
+
+    friend class State;
 };
 
 
