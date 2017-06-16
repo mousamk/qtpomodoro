@@ -13,6 +13,7 @@ class Pomodoro: public QObject
 
 public:
     Pomodoro(QObject* parent = NULL);
+    bool isRunning();
 
 
 public slots:

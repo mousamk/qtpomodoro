@@ -23,6 +23,11 @@ void Pomodoro::changeStatus(PomodoroStatus newStatus)
     emit statusChanged(newStatus);
 }
 
+
+bool Pomodoro::isRunning()
+{
+    return status != WaitingToStart;
+}
 void Pomodoro::goNextState()
 {
     switch (status)
