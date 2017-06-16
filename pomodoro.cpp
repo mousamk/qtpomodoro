@@ -28,6 +28,12 @@ bool Pomodoro::isRunning()
 {
     return status != WaitingToStart;
 }
+
+PomodoroStatus Pomodoro::getStatus()
+{
+    return status;
+}
+
 void Pomodoro::goNextState()
 {
     switch (status)
