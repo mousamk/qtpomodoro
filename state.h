@@ -1,6 +1,8 @@
 #ifndef STATE_H
 #define STATE_H
 
+#include <QObject>
+
 
 class Pomodoro;
 
@@ -13,6 +15,10 @@ class State : public QObject
 public:
     explicit State(Pomodoro* pomodoro);
     void goNextState() = 0;
+    void handleMainAction() = 0;
+    QString getMainActionText() = 0;
+    QString getBackgroundColor() = 0;
+
 
 
 private:
