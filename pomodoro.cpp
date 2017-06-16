@@ -1,7 +1,7 @@
 #include "pomodoro.h"
 
 
-Pomodoro::Pomodoro(const QParent* parent) : QObject(parent)
+Pomodoro::Pomodoro(QObject* parent) : QObject(parent)
 {
     initTimer();
     setupConnections();
