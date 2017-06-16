@@ -6,7 +6,7 @@
 #include "status.h"
 
 
-class Pomodoro: QObject
+class Pomodoro: public QObject
 {
     Q_OBJECT
 
