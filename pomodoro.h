@@ -6,6 +6,11 @@
 
 
 class State;
+class StateWaitingToStart;
+class StateWaitingToRun;
+class StateWaitingToBreak;
+class StateRunning;
+class StateBreakRunning;
 
 
 class Pomodoro: public QObject
@@ -50,7 +55,11 @@ private:
     State* state = NULL;
 
 
-    friend class State;
+    friend class StateWaitingToStart;
+    friend class StateWaitingToRun;
+    friend class StateWaitingToBreak;
+    friend class StateRunning;
+    friend class StateBreakRunning;
 };
 
 
