@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     settings.cpp \
     pomodoro.cpp \
-    state.cpp
+    state.cpp \
+    statewaitingtostart.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
     status.h \
     pomodoro.h \
-    state.h
+    state.h \
+    statewaitingtostart.h
 
 FORMS    += mainwindow.ui
