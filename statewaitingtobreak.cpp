@@ -8,7 +8,7 @@ StateWaitingToBreak::StateWaitingToBreak(Pomodoro* pomodoro) : State(pomodoro)
 
 void StateWaitingToBreak::goNextState()
 {
-    pomodoro->startRun();
+    pomodoro->startBreak();
 }
 
 void StateWaitingToBreak::handleMainAction()
