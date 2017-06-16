@@ -2,7 +2,7 @@
 #include "pomodoro.h"
 
 
-StateRunning::StateRunning()
+StateRunning::StateRunning(Pomodoro* pomodoro) : State(pomodoro)
 {
 }
 
