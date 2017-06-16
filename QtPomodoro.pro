@@ -15,11 +15,22 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     settings.cpp \
-    pomodoro.cpp
+    pomodoro.cpp \
+    state.cpp \
+    statewaitingtostart.cpp \
+    staterunning.cpp \
+    statewaitingtobreak.cpp \
+    statebreakrunning.cpp \
+    statewaitingtorun.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
-    status.h \
-    pomodoro.h
+    pomodoro.h \
+    state.h \
+    statewaitingtostart.h \
+    staterunning.h \
+    statewaitingtobreak.h \
+    statebreakrunning.h \
+    statewaitingtorun.h
 
 FORMS    += mainwindow.ui

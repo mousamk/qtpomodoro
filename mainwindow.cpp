@@ -57,53 +57,13 @@ void MainWindow::initPomodoro()
 
 void MainWindow::onActionButtonClick()
 {
-    /*if (!pomodoro->isRunning())
-        pomodoro->start();
-    else
-        pomodoro->stop();*/
-    switch (pomodoro->getStatus())
-    {
-    case WaitingToStart:
-    case WaitingToRun:
-    case WaitingToBreak:
-        pomodoro->goNextState();
-        break;
-
-    case Running:
-    case BreakRunning:
-        pomodoro->stop();
-        break;
-    }
+    pomodoro->handleMainAction();
 }
 
 void MainWindow::updateStatus(PomodoroStatus status)
 {
-    switch (status)
-    {
-    case WaitingToStart:
-        ui->backFrame->setStyleSheet("background-color: #FFFFFF;");
-        ui->btnAction->setText("Start");
-        break;
-
-    case WaitingToRun:
-        ui->backFrame->setStyleSheet("background-color: #FF0000;");
-        ui->btnAction->setText("Start");
-        break;
-
-    case Running:
-        ui->backFrame->setStyleSheet("background-color: #FF0000;");
-        ui->btnAction->setText("Stop");
-        break;
-
-    case WaitingToBreak:
-        ui->backFrame->setStyleSheet("background-color: #00FF00;");
-        ui->btnAction->setText("Break");
-        break;
-
-    case BreakRunning:
-        ui->backFrame->setStyleSheet("background-color: #00FF00;");
-        ui->btnAction->setText("Stop");
-    }
+    ui->backFrame->setStyleSheet(QString("background-color: ") + pomodoro->getBackgroundColor() + ";");
+    ui->btnAction->setText(pomodoro->getMainActionText());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent* event)
