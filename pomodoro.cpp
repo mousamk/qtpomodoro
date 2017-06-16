@@ -14,7 +14,7 @@ void Pomodoro::initTimer()
 
 void Pomodoro::setupConnections()
 {
-    connect(timer, SIGNAL(timeout()), this, SLOT(timerTimeout());
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
 }
 
 void Pomodoro::changeStatus(PomodoroStatus newStatus)
