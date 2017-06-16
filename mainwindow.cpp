@@ -24,7 +24,7 @@ void MainWindow::setupConnections()
 {
     connect(ui->btnAction, SIGNAL(clicked()), this, SLOT(onActionButtonClick()));
     connect(pomodoro, SIGNAL(timeUpdated(int,int)), this, SLOT(updateTime(int,int)));
-    connect(pomodoro, SIGNAL(statusChanged(PomodoroStatus)), this, SLOT(updateStatus(PomodoroStatus)));
+    connect(pomodoro, SIGNAL(statusChanged()), this, SLOT(updateStatus()));
 }
 
 void MainWindow::initViews()
@@ -60,7 +60,7 @@ void MainWindow::onActionButtonClick()
     pomodoro->handleMainAction();
 }
 
-void MainWindow::updateStatus(PomodoroStatus status)
+void MainWindow::updateStatus()
 {
     ui->backFrame->setStyleSheet(QString("background-color: ") + pomodoro->getBackgroundColor() + ";");
     ui->btnAction->setText(pomodoro->getMainActionText());

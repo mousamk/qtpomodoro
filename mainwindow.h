@@ -24,7 +24,7 @@ public:
 public slots:
     void onActionButtonClick();
     void updateTime(int min, int sec);
-    void updateStatus(PomodoroStatus);
+    void updateStatus();
 
 
 protected:
