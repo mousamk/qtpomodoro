@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     pomodoro.cpp \
     state.cpp \
     statewaitingtostart.cpp \
-    staterunning.cpp
+    staterunning.cpp \
+    statewaitingtobreak.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
@@ -26,6 +27,7 @@ HEADERS  += mainwindow.h \
     pomodoro.h \
     state.h \
     statewaitingtostart.h \
-    staterunning.h
+    staterunning.h \
+    statewaitingtobreak.h
 
 FORMS    += mainwindow.ui
