@@ -3,6 +3,10 @@
 #include <QDebug>
 #include <QDateTime>
 #include "statewaitingtostart.h"
+#include "staterunning.h"
+#include "statebreakrunning.h"
+#include "statewaitingtobreak.h"
+#include "statewaitingtorun.h"
 
 
 Pomodoro::Pomodoro(QObject* parent) : QObject(parent)
@@ -39,7 +43,7 @@ void Pomodoro::stop()
     timer->stop();
     roundsDone = 0;
     emit timeUpdated(Settings::getInstance()->loadPomodoroRunMinutes(), 0);
-    changeStatus(WaitingToRun);
+    emit statusChanged();
 }
 
 void Pomodoro::handleMainAction()
@@ -65,22 +69,34 @@ void Pomodoro::goNextState()
 void Pomodoro::startRun()
 {
     timer->start(1000);
-    changeStatus(Running);
     finishTime = QDateTime::currentMSecsSinceEpoch()/1000 + Settings::getInstance()->loadPomodoroRunMinutes()*60;
+    state = new StateRunning(this);
+    emit statusChanged();
 }
 
 void Pomodoro::finishRun()
 {
     timer->stop();
+    state = new StateWaitingToBreak(this);
+    roundsDone += 1;
     emit timeUpdated(nextBreakMinutes(), 0);
-    changeStatus(WaitingToBreak);
+    emit statusChanged();
 }
 
 void Pomodoro::startBreak()
 {
     timer->start();
-    changeStatus(BreakRunning);
     finishTime = QDateTime::currentMSecsSinceEpoch()/1000 + nextBreakMinutes()*60;
+    state = new StateBreakRunning(this);
+    emit statusChanged();
+}
+
+void Pomodoro::finishBreak()
+{
+    timer->stop();
+    state = new StateWaitingToRun(this);
+    emit timeUpdated(Settings::getInstance()->loadPomodoroRunMinutes(), 0);
+    emit statusChanged();
 }
 
 int Pomodoro::nextBreakMinutes()
@@ -88,13 +104,6 @@ int Pomodoro::nextBreakMinutes()
     Settings* settings = Settings::getInstance();
     bool isLong = roundsDone % settings->loadPomodoroRunCounts() == 0;
     return isLong ? settings->loadPomodoroLongBreakMinutes() : settings->loadPomodoroBreakMinutes();
-}
-
-void Pomodoro::finishBreak()
-{
-    timer->stop();
-    emit timeUpdated(Settings::getInstance()->loadPomodoroRunMinutes(), 0);
-    changeStatus(WaitingToRun);
 }
 
 void Pomodoro::update()
