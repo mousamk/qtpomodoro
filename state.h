@@ -14,10 +14,10 @@ class State : public QObject
 
 public:
     explicit State(Pomodoro* pomodoro);
-    void goNextState() = 0;
-    void handleMainAction() = 0;
-    QString getMainActionText() = 0;
-    QString getBackgroundColor() = 0;
+    virtual void goNextState() = 0;
+    virtual void handleMainAction() = 0;
+    virtual QString getMainActionText() = 0;
+    virtual QString getBackgroundColor() = 0;
 
 
 
