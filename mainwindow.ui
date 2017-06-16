@@ -31,7 +31,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="backFrame">
       <property name="styleSheet">
        <string notr="true">background-color: #FF0000;</string>
       </property>
