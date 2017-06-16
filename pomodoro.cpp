@@ -58,7 +58,7 @@ void Pomodoro::startBreak()
     //...
 }
 
-void Pomodoro::finishRun()
+void Pomodoro::finishBreak()
 {
     //...
 }
