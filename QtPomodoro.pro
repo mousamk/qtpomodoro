@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     statewaitingtostart.cpp \
     staterunning.cpp \
     statewaitingtobreak.cpp \
-    statebreakrunning.cpp
+    statebreakrunning.cpp \
+    statewaitingtorun.cpp
 
 HEADERS  += mainwindow.h \
     settings.h \
@@ -30,6 +31,7 @@ HEADERS  += mainwindow.h \
     statewaitingtostart.h \
     staterunning.h \
     statewaitingtobreak.h \
-    statebreakrunning.h
+    statebreakrunning.h \
+    statewaitingtorun.h
 
 FORMS    += mainwindow.ui
