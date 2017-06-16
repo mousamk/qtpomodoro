@@ -7,7 +7,7 @@
 class StateBreakRunning : public State
 {
 public:
-    StateBreakRunning(Pomorodo* pomodoro);
+    StateBreakRunning(Pomodoro* pomodoro);
     void goNextState();
     void handleMainAction();
     QString getMainActionText();
