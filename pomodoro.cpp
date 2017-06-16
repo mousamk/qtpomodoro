@@ -65,8 +65,8 @@ void Pomodoro::goNextState()
 void Pomodoro::startRun()
 {
     timer->start(1000);
-    startTime = QDateTime::currentMSecsSinceEpoch();
     changeStatus(Running);
+    finishTime = QDateTime::currentMSecsSinceEpoch()/1000 + Settings::getInstance()->loadPomodoroRunMinutes()*60;
 }
 
 void Pomodoro::finishRun()
@@ -79,8 +79,8 @@ void Pomodoro::finishRun()
 void Pomodoro::startBreak()
 {
     timer->start();
-    startTime = QDateTime::currentMSecsSinceEpoch();
     changeStatus(BreakRunning);
+    finishTime = QDateTime::currentMSecsSinceEpoch()/1000 + nextBreakMinutes()*60;
 }
 
 int Pomodoro::nextBreakMinutes()
@@ -99,10 +99,8 @@ void Pomodoro::finishBreak()
 
 void Pomodoro::update()
 {
-    qint64 now = QDateTime::currentMSecsSinceEpoch();
-    qint64 elapsed = (now - startTime) / 1000;
-    qint64 whole = Settings::getInstance()->loadPomodoroRunMinutes()*60;
-    qint64 rem = whole - elapsed;
+    qint64 now = QDateTime::currentMSecsSinceEpoch() / 1000;
+    qint64 rem = finishTime - now;
     if (rem <= 0)
         goNextState();
     else {

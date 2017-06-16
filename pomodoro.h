@@ -51,7 +51,7 @@ signals:
 private:
     int roundsDone = 0;
     QTimer* timer = NULL;
-    qint64 startTime = 0;
+    qint64 finishTime = 0;
     State* state = NULL;
 
 
