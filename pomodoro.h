@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QTimer>
-#include "status.h"
 
 
 class State;
@@ -16,9 +15,6 @@ class Pomodoro: public QObject
 
 public:
     Pomodoro(QObject* parent = NULL);
-    bool isRunning();
-    PomodoroStatus getStatus();
-    State* getState();
 
 
 public slots:
@@ -26,12 +22,15 @@ public slots:
     void update();
     void start();
     void stop();
+    void handleMainAction();
+    QString getMainActionText();
+    QString getBackgroundColor();
 
 
 private:
     void initTimer();
+    void initState();
     void setupConnections();
-    void changeStatus(PomodoroStatus);
     void startRun();
     void finishRun();
     void startBreak();
@@ -40,12 +39,11 @@ private:
 
 
 signals:
-    void statusChanged(PomodoroStatus);
+    void statusChanged();
     void timeUpdated(int min, int sec);
 
 
 private:
-    PomodoroStatus status = WaitingToStart;
     int roundsDone = 0;
     QTimer* timer = NULL;
     qint64 startTime = 0;

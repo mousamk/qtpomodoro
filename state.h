@@ -20,7 +20,6 @@ public:
     virtual QString getBackgroundColor() = 0;
 
 
-
 protected:
     Pomodoro* pomodoro;
 };

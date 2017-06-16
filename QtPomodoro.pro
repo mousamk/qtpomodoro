@@ -25,7 +25,6 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     settings.h \
-    status.h \
     pomodoro.h \
     state.h \
     statewaitingtostart.h \

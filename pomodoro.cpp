@@ -2,11 +2,13 @@
 #include "settings.h"
 #include <QDebug>
 #include <QDateTime>
+#include "statewaitingtostart.h"
 
 
 Pomodoro::Pomodoro(QObject* parent) : QObject(parent)
 {
     initTimer();
+    initState();
     setupConnections();
 }
 
@@ -15,15 +17,14 @@ void Pomodoro::initTimer()
     timer = new QTimer(this);
 }
 
+void Pomodoro::initState()
+{
+    state = new StateWaitingToStart(this);
+}
+
 void Pomodoro::setupConnections()
 {
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-}
-
-void Pomodoro::changeStatus(PomodoroStatus newStatus)
-{
-    status = newStatus;
-    emit statusChanged(newStatus);
 }
 
 void Pomodoro::start()
@@ -41,39 +42,24 @@ void Pomodoro::stop()
     changeStatus(WaitingToRun);
 }
 
-bool Pomodoro::isRunning()
+void Pomodoro::handleMainAction()
 {
-    return status != WaitingToStart;
+    state->handleMainAction();
 }
 
-PomodoroStatus Pomodoro::getStatus()
+QString Pomodoro::getMainActionText()
 {
-    return status;
+    return state->getMainActionText();
 }
 
-State* Pomodoro::getState()
+QString Pomodoro::getBackgroundColor()
 {
-    return state;
+    return state->getBackgroundColor();
 }
 
 void Pomodoro::goNextState()
 {
-    switch (status)
-    {
-    case WaitingToStart:
-    case WaitingToRun:
-        startRun();
-        break;
-    case Running:
-        finishRun();
-        break;
-    case WaitingToBreak:
-        startBreak();
-        break;
-    case BreakRunning:
-        finishBreak();
-        break;
-    }
+    state->goNextState();
 }
 
 void Pomodoro::startRun()
