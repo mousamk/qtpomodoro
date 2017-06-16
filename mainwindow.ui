@@ -115,7 +115,7 @@
             <string notr="true">color: #FFFFFF;</string>
            </property>
            <property name="text">
-            <string>25</string>
+            <string>0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
