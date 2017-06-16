@@ -9,11 +9,14 @@ class Settings
 {
 public:
     static Settings* getInstance();
-
     void saveMainWindowGeometry(QByteArray);
     void saveMainWindowState(QByteArray);
     QByteArray loadMainWindowGeometry();
     QByteArray loadMainWindowState();
+    int loadPomodoroRunMinutes();
+    int loadPomodoroRunCounts();
+    int loadPomodoroBreakMinutes();
+    int loadPomodoroLongBreakMinutes();
 
 
 private:
