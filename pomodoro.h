@@ -32,6 +32,7 @@ private:
     void finishRun();
     void startBreak();
     void finishBreak();
+    int nextBreakMinutes();
 
 
 signals:

@@ -84,6 +84,13 @@ void Pomodoro::startBreak()
     //...
 }
 
+int Pomodoro::nextBreakMinutes()
+{
+    Settings* settings = Settings::getInstance();
+    bool isLong = roundsDone % settings->loadPomodoroRunCounts() == 0;
+    return isLong ? settings->loadPomodoroLongBreakMinutes() : settings->loadPomodoroBreakMinutes();
+}
+
 void Pomodoro::finishBreak()
 {
     //...
