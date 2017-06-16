@@ -41,6 +41,7 @@ private:
     PomodoroStatus status = WaitingToStart;
     int roundsDone = 0;
     QTimer* timer = NULL;
+    qint64 startTime = 0;
 };
 
 
