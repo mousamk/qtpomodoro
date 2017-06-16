@@ -35,3 +35,23 @@ QByteArray Settings::loadMainWindowState()
 {
     return settings->value("mainwindow_state").toByteArray();
 }
+
+int Settings::loadPomodoroRunMinutes()
+{
+    return settings->value("run_mins", QVariant(25)).toInt();
+}
+
+int Settings::loadPomodoroRunCounts()
+{
+    return settings->value("run_counts", QVariant(4)).toInt();
+}
+
+int Settings::loadPomodoroBreakMinutes()
+{
+    return settings->value("break_mins", QVariant(5)).toInt();
+}
+
+int Settings::loadPomodoroLongBreakMinutes()
+{
+    return settings->value("longbreak_mins", QVariant(15)).toInt();
+}

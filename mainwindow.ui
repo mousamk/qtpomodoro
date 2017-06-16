@@ -31,7 +31,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="backFrame">
       <property name="styleSheet">
        <string notr="true">background-color: #FF0000;</string>
       </property>
@@ -115,7 +115,7 @@
             <string notr="true">color: #FFFFFF;</string>
            </property>
            <property name="text">
-            <string>25</string>
+            <string>0</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
