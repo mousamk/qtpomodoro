@@ -21,7 +21,7 @@ public:
 
 
 
-private:
+protected:
     Pomodoro* pomodoro;
 };
 
