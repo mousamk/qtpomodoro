@@ -1,5 +1,7 @@
 #include "pomodoro.h"
 #include "settings.h"
+#include <QDebug>
+#include <QDateTime>
 
 
 Pomodoro::Pomodoro(QObject* parent) : QObject(parent)
@@ -15,7 +17,7 @@ void Pomodoro::initTimer()
 
 void Pomodoro::setupConnections()
 {
-    connect(timer, SIGNAL(timeout()), this, SLOT(timerTimeout()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 }
 
 void Pomodoro::changeStatus(PomodoroStatus newStatus)
@@ -96,7 +98,17 @@ void Pomodoro::finishBreak()
     //...
 }
 
-void Pomodoro::timerTimeout()
+void Pomodoro::update()
 {
-    //...
+    qint64 now = QDateTime::currentMSecsSinceEpoch();
+    qint64 elapsed = (now - startTime) / 1000;
+    qint64 whole = Settings::getInstance()->loadPomodoroRunMinutes()*60;
+    qint64 rem = whole - elapsed;
+    if (rem <= 0)
+        goNextState();
+    else {
+        int min = rem / 60;
+        int sec = rem % 60;
+        emit timeUpdated(min, sec);
+    }
 }
