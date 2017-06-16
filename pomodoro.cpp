@@ -1,4 +1,5 @@
 #include "pomodoro.h"
+#include "settings.h"
 
 
 Pomodoro::Pomodoro(QObject* parent) : QObject(parent)
@@ -23,6 +24,20 @@ void Pomodoro::changeStatus(PomodoroStatus newStatus)
     emit statusChanged(newStatus);
 }
 
+void Pomodoro::start()
+{
+    timer->stop();
+    roundsDone = 0;
+    startRun();
+}
+
+void Pomodoro::stop()
+{
+    timer->stop();
+    roundsDone = 0;
+    emit timeUpdated(Settings::getInstance()->loadPomodoroRunMinutes(), 0);
+    changeStatus(WaitingToRun);
+}
 
 bool Pomodoro::isRunning()
 {

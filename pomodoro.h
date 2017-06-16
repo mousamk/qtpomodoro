@@ -20,6 +20,8 @@ public:
 public slots:
     void goNextState();
     void timerTimeout();
+    void start();
+    void stop();
 
 
 private:
