@@ -12,7 +12,7 @@ class Pomodoro: public QObject
 
 
 public:
-    Pomodoro(const QObject* parent = NULL);
+    Pomodoro(QObject* parent = NULL);
 
 
 public slots:
