@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupConnections()
 {
-    connect(ui->btnAction, SIGNAL(clicked()), this, SLOT(onActionButtonClick()));
+    connect(ui->btnAction, SIGNAL(clicked()), pomodoro, SLOT(handleMainAction()));
     connect(pomodoro, SIGNAL(timeUpdated(int,int)), this, SLOT(updateTime(int,int)));
     connect(pomodoro, SIGNAL(statusChanged()), this, SLOT(updateStatus()));
 }
@@ -53,11 +53,6 @@ void MainWindow::closeEvent(QCloseEvent*)
 void MainWindow::initPomodoro()
 {
     pomodoro = new Pomodoro(this);
-}
-
-void MainWindow::onActionButtonClick()
-{
-    pomodoro->handleMainAction();
 }
 
 void MainWindow::updateStatus()
