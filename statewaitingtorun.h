@@ -10,6 +10,7 @@ public:
     StateWaitingToRun(Pomodoro* pomorodo);
     void goNextState();
     void handleMainAction();
+    void skipToNext();
     QString getMainActionText();
     QString getBackgroundColor();
 };

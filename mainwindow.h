@@ -22,7 +22,6 @@ public:
 
 
 public slots:
-    void onActionButtonClick();
     void updateTime(int min, int sec);
     void updateStatus();
 

@@ -16,6 +16,11 @@ void StateWaitingToBreak::handleMainAction()
     goNextState();
 }
 
+void StateWaitingToBreak::skipToNext()
+{
+    pomodoro->finishBreak();
+}
+
 QString StateWaitingToBreak::getMainActionText()
 {
     return "Break";

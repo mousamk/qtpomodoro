@@ -51,6 +51,11 @@ void Pomodoro::handleMainAction()
     state->handleMainAction();
 }
 
+void Pomodoro::skipToNext()
+{
+    state->skipToNext();
+}
+
 QString Pomodoro::getMainActionText()
 {
     return state->getMainActionText();

@@ -16,6 +16,11 @@ void StateBreakRunning::handleMainAction()
     pomodoro->stop();
 }
 
+void StateBreakRunning::skipToNext()
+{
+    goNextState();
+}
+
 QString StateBreakRunning::getMainActionText()
 {
     return "Stop";
