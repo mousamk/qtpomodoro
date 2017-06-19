@@ -28,6 +28,7 @@ public slots:
     void start();
     void stop();
     void handleMainAction();
+    void skipToNext();
     QString getMainActionText();
     QString getBackgroundColor();
 

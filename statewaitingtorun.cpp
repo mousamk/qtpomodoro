@@ -16,6 +16,11 @@ void StateWaitingToRun::handleMainAction()
     goNextState();
 }
 
+void StateWaitingToRun::skipToNext()
+{
+    pomodoro->finishRun();
+}
+
 QString StateWaitingToRun::getMainActionText()
 {
     return "Start";

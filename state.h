@@ -16,6 +16,7 @@ public:
     explicit State(Pomodoro* pomodoro);
     virtual void goNextState() = 0;
     virtual void handleMainAction() = 0;
+    virtual void skipToNext() = 0;
     virtual QString getMainActionText() = 0;
     virtual QString getBackgroundColor() = 0;
 

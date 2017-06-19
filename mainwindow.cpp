@@ -23,6 +23,7 @@ MainWindow::~MainWindow()
 void MainWindow::setupConnections()
 {
     connect(ui->btnAction, SIGNAL(clicked()), pomodoro, SLOT(handleMainAction()));
+    connect(ui->btnSkip, SIGNAL(clicked()), pomodoro, SLOT(skipToNext()));
     connect(pomodoro, SIGNAL(timeUpdated(int,int)), this, SLOT(updateTime(int,int)));
     connect(pomodoro, SIGNAL(statusChanged()), this, SLOT(updateStatus()));
 }
