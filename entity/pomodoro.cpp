@@ -1,5 +1,5 @@
 #include "pomodoro.h"
-#include "settings.h"
+#include "data/settings.h"
 #include <QDebug>
 #include <QDateTime>
 #include "statewaitingtostart.h"
