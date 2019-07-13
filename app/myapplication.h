@@ -4,6 +4,9 @@
 #include <QApplication>
 #include <QtWidgets/QSystemTrayIcon>
 #include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QAction>
+
+class MainWindow;
 
 
 class MyApplication : public QApplication
@@ -12,6 +15,8 @@ class MyApplication : public QApplication
 
 private:
     QSystemTrayIcon* trayIcon;
+    MainWindow* mainWindow = nullptr;
+    QAction* showHideAction = nullptr;
 
 public:
     static MyApplication* getInstance();
@@ -20,6 +25,7 @@ public:
 
 public Q_SLOTS:
     void doBreak();
+    void showOrHideWindow();
 
 private:
     static MyApplication* instance;
