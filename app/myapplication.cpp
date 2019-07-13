@@ -3,9 +3,18 @@
 #include "myapplication.h"
 
 
+MyApplication* MyApplication::instance = nullptr;
+
+
+MyApplication* MyApplication::getInstance() {
+    return instance;
+}
+
 MyApplication::MyApplication(int &argc, char** argv)
     : QApplication (argc, argv)
 {
+    instance = this;
+
     QPixmap pixmap(32, 32);
     pixmap.load("://images/tray.png");
     QIcon icon(pixmap);

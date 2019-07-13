@@ -14,11 +14,15 @@ private:
     QSystemTrayIcon* trayIcon;
 
 public:
+    static MyApplication* getInstance();
     MyApplication(int &argc, char** argv);
     void showTrayIcon();
 
 public Q_SLOTS:
     void doBreak();
+
+private:
+    static MyApplication* instance;
 };
 
 #endif // MYAPPLICATION_H
