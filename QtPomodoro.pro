@@ -13,6 +13,7 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+        app/myapplication.cpp \
         ui/mainwindow.cpp \
         data/settings.cpp \
         entity/pomodoro.cpp \
@@ -24,6 +25,7 @@ SOURCES += main.cpp\
         entity/statewaitingtorun.cpp
 
 HEADERS  += ui/mainwindow.h \
+        app/myapplication.h \
         data/settings.h \
         entity/pomodoro.h \
         entity/state.h \

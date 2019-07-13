@@ -1,11 +1,11 @@
-#include "ui/mainwindow.h"
-#include <QApplication>
+#include "app/myapplication.h"
+#include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QMenu>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-
+    MyApplication a(argc, argv);
+    a.showTrayIcon();
     return a.exec();
 }
