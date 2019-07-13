@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "settings.h"
+#include "data/settings.h"
 #include <QDebug>
 
 
