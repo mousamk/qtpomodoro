@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QMouseEvent>
-#include "pomodoro.h"
+#include "entity/pomodoro.h"
 
 
 namespace Ui {
