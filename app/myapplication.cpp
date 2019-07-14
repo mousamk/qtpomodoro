@@ -1,5 +1,4 @@
 #include <QDebug>
-#include <QMenu>
 #include "myapplication.h"
 #include "ui/mainwindow.h"
 
@@ -15,20 +14,33 @@ MyApplication::MyApplication(int &argc, char** argv)
     : QApplication (argc, argv)
 {
     instance = this;
+    setupSystemTray();
+}
 
+void MyApplication::setupSystemTray() {
+    setupMenuActions();
+    buildSystemTrayIcon();
+}
+
+QIcon MyApplication::getIconForTray(QString path) {
     QPixmap pixmap(32, 32);
-    pixmap.load("://images/tray.png");
-    QIcon icon(pixmap);
-    QMenu* menu = new QMenu();
-    showHideAction = menu->addAction("Show");
-    connect(showHideAction, SIGNAL(triggered()), SLOT(showOrHideWindow()));
-//    QAction* breakAction = menu->addAction("Break");
-//    connect(breakAction, SIGNAL(triggered()), SLOT(doBreak()));
-    QAction* exitAction = menu->addAction("Exit");
-    connect(exitAction, SIGNAL(triggered()), SLOT(quit()));
+    pixmap.load(path);
+    return QIcon(pixmap);
+}
+
+void MyApplication::buildSystemTrayIcon() {
+    QIcon icon = getIconForTray("://images/tray.png");
     trayIcon = new QSystemTrayIcon(icon, this);
-    trayIcon->setContextMenu(menu);
+    trayIcon->setContextMenu(trayMenu);
     trayIcon->setToolTip("Qt Pomodoro");
+}
+
+void MyApplication::setupMenuActions() {
+    showHideAction = trayMenu->addAction("Show");
+    connect(showHideAction, SIGNAL(triggered()), SLOT(showOrHideWindow()));
+
+    QAction* exitAction = trayMenu->addAction("Exit");
+    connect(exitAction, SIGNAL(triggered()), SLOT(quit()));
 }
 
 void MyApplication::showTrayIcon() {
@@ -36,11 +48,11 @@ void MyApplication::showTrayIcon() {
 }
 
 void MyApplication::showOrHideWindow() {
-    if (mainWindow != nullptr && mainWindow->isVisible()) {
+    if (mainWindow && mainWindow->isVisible()) {
         mainWindow->hide();
         showHideAction->setText("Show");
     } else {
-        if (mainWindow == nullptr) {
+        if (!mainWindow) {
             mainWindow = new MainWindow();
         }
         mainWindow->show();

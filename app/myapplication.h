@@ -5,6 +5,7 @@
 #include <QtWidgets/QSystemTrayIcon>
 #include <QtWidgets/QSystemTrayIcon>
 #include <QtWidgets/QAction>
+#include <QMenu>
 
 class MainWindow;
 
@@ -17,11 +18,18 @@ private:
     QSystemTrayIcon* trayIcon;
     MainWindow* mainWindow = nullptr;
     QAction* showHideAction = nullptr;
+    QMenu* trayMenu = new QMenu();
 
 public:
     static MyApplication* getInstance();
     MyApplication(int &argc, char** argv);
     void showTrayIcon();
+
+private:
+    void setupSystemTray();
+    void setupMenuActions();
+    QIcon getIconForTray(QString);
+    void buildSystemTrayIcon();
 
 public Q_SLOTS:
     void doBreak();
