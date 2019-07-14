@@ -39,6 +39,10 @@ private:
     void initViews();
 
 
+signals:
+    void statusChanged(State*);
+
+
 private:
     Ui::MainWindow *ui;
     QPoint mLastMousePosition;

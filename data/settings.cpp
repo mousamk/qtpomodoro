@@ -1,7 +1,7 @@
 #include "settings.h"
 
 
-Settings* Settings::instance = NULL;
+Settings* Settings::instance = nullptr;
 
 
 Settings::Settings()
@@ -11,7 +11,7 @@ Settings::Settings()
 
 Settings* Settings::getInstance()
 {
-    if (NULL == instance)
+    if (!instance)
         instance = new Settings();
     return instance;
 }

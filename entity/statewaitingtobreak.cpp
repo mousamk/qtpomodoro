@@ -28,5 +28,10 @@ QString StateWaitingToBreak::getMainActionText()
 
 QString StateWaitingToBreak::getBackgroundColor()
 {
-    return "#00FF00";
+    return "#55FF55";
+}
+
+QString StateWaitingToBreak::getIconPath()
+{
+    return "://images/tray_break.png";
 }
