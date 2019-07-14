@@ -19,7 +19,7 @@ class Pomodoro: public QObject
 
 
 public:
-    Pomodoro(QObject* parent = NULL);
+    Pomodoro(QObject* parent = nullptr);
 
 
 public slots:
@@ -51,9 +51,9 @@ signals:
 
 private:
     int roundsDone = 0;
-    QTimer* timer = NULL;
+    QTimer* timer = nullptr;
     qint64 finishTime = 0;
-    State* state = NULL;
+    State* state = nullptr;
 
 
     friend class StateWaitingToStart;
