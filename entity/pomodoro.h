@@ -31,6 +31,7 @@ public slots:
     void skipToNext();
     QString getMainActionText();
     QString getBackgroundColor();
+    State* getState();
 
 
 private:

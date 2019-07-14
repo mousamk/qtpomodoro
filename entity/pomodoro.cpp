@@ -123,3 +123,7 @@ void Pomodoro::update()
         emit timeUpdated(min, sec);
     }
 }
+
+State* Pomodoro::getState() {
+    return state;
+}
