@@ -61,6 +61,7 @@ void MainWindow::updateStatus()
 {
     ui->backFrame->setStyleSheet(QString("background-color: ") + pomodoro->getBackgroundColor() + ";");
     ui->btnAction->setText(pomodoro->getMainActionText());
+    emit statusChanged(pomodoro->getState());
 }
 
 void MainWindow::mousePressEvent(QMouseEvent* event)
