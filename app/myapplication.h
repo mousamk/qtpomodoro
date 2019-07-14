@@ -30,6 +30,7 @@ private:
     void setupMenuActions();
     QIcon getIconForTray(QString);
     void buildSystemTrayIcon();
+    void initMainWindow();
 
 public Q_SLOTS:
     void doBreak();
