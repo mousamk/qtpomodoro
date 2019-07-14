@@ -13,6 +13,7 @@ public:
     void skipToNext();
     QString getMainActionText();
     QString getBackgroundColor();
+    QString getIconPath();
 };
 
 #endif // STATERUNNING_H

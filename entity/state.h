@@ -19,6 +19,7 @@ public:
     virtual void skipToNext() = 0;
     virtual QString getMainActionText() = 0;
     virtual QString getBackgroundColor() = 0;
+    virtual QString getIconPath() = 0;
 
 
 protected:

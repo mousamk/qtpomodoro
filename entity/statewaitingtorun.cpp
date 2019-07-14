@@ -28,5 +28,10 @@ QString StateWaitingToRun::getMainActionText()
 
 QString StateWaitingToRun::getBackgroundColor()
 {
-    return "#FF0000";
+    return "#FF5555";
+}
+
+QString StateWaitingToRun::getIconPath()
+{
+    return "://images/tray.png";
 }

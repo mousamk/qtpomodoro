@@ -28,5 +28,10 @@ QString StateRunning::getMainActionText()
 
 QString StateRunning::getBackgroundColor()
 {
-    return "#FF0000";
+    return "#FF5555";
+}
+
+QString StateRunning::getIconPath()
+{
+    return "://images/tray.png";
 }
