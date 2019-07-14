@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initPomodoro();
     setupConnections();
     initViews();
+    updateStatus();
 }
 
 MainWindow::~MainWindow()
