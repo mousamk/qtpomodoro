@@ -17,6 +17,10 @@ public:
     int loadPomodoroRunCounts();
     int loadPomodoroBreakMinutes();
     int loadPomodoroLongBreakMinutes();
+    void savePomodoroRunMinutes(int);
+    void savePomodoroRunCounts(int);
+    void savePomodoroBreakMinutes(int);
+    void savePomodoroLongBreakMinutes(int);
 
 
 private:

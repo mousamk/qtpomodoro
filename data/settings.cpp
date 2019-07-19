@@ -55,3 +55,23 @@ int Settings::loadPomodoroLongBreakMinutes()
 {
     return settings->value("longbreak_mins", QVariant(15)).toInt();
 }
+
+void Settings::savePomodoroRunMinutes(int minutes)
+{
+    settings->setValue("run_mins", minutes);
+}
+
+void Settings::savePomodoroRunCounts(int counts)
+{
+    settings->setValue("run_counts", counts);
+}
+
+void Settings::savePomodoroBreakMinutes(int minutes)
+{
+    settings->setValue("break_mins", minutes);
+}
+
+void Settings::savePomodoroLongBreakMinutes(int minutes)
+{
+    settings->setValue("longbreak_mins", minutes);
+}
