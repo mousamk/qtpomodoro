@@ -38,7 +38,6 @@ private:
     void initMainWindow();
 
 public Q_SLOTS:
-    void doBreak();
     void showOrHideWindow();
 
 private:

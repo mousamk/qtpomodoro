@@ -104,13 +104,3 @@ void MyApplication::initMainWindow()
         trayIcon->setIcon(icon);
     });
 }
-
-void MyApplication::doBreak()
-{
-    qDebug() << "Start break...";
-
-    QPixmap pixmap(32, 32);
-    pixmap.load("://images/tray_break.png");
-    QIcon icon(pixmap);
-    trayIcon->setIcon(icon);
-}
