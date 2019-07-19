@@ -1,6 +1,7 @@
 #include <QDebug>
 #include "myapplication.h"
 #include "ui/mainwindow.h"
+#include "ui/settingsdialog.h"
 #include "entity/state.h"
 
 
@@ -42,10 +43,37 @@ void MyApplication::buildSystemTrayIcon()
 
 void MyApplication::setupMenuActions()
 {
-    showHideAction = trayMenu->addAction("Show");
-    connect(showHideAction, SIGNAL(triggered()), SLOT(showOrHideWindow()));
+    setupShowHideAction();
+    setupSettingsAction();
+    setupExitAction();
+}
 
-    QAction* exitAction = trayMenu->addAction("Exit");
+void MyApplication::setupShowHideAction()
+{
+    showHideAction = trayMenu->addAction("&Show");
+    connect(showHideAction, SIGNAL(triggered()), SLOT(showOrHideWindow()));
+}
+
+void MyApplication::setupSettingsAction()
+{
+    QAction* settingsAction = trayMenu->addAction("Se&ttings");
+    connect(settingsAction, &QAction::triggered, this, [this](){
+        if (!settingsDialog) {
+            settingsDialog = new SettingsDialog();
+            settingsDialog->setWindowFlags(Qt::Tool);
+        }
+        if (!settingsDialog->isVisible()) {
+            settingsDialog->exec();
+        } else {
+            settingsDialog->hide();
+            settingsDialog->show();
+        }
+    });
+}
+
+void MyApplication::setupExitAction()
+{
+    QAction* exitAction = trayMenu->addAction("E&xit");
     connect(exitAction, SIGNAL(triggered()), SLOT(quit()));
 }
 
@@ -75,14 +103,4 @@ void MyApplication::initMainWindow()
         QIcon icon = getIconForTray(state->getIconPath());
         trayIcon->setIcon(icon);
     });
-}
-
-void MyApplication::doBreak()
-{
-    qDebug() << "Start break...";
-
-    QPixmap pixmap(32, 32);
-    pixmap.load("://images/tray_break.png");
-    QIcon icon(pixmap);
-    trayIcon->setIcon(icon);
 }

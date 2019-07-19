@@ -8,6 +8,7 @@
 #include <QMenu>
 
 class MainWindow;
+class SettingsDialog;
 
 
 class MyApplication : public QApplication
@@ -17,6 +18,7 @@ class MyApplication : public QApplication
 private:
     QSystemTrayIcon* trayIcon;
     MainWindow* mainWindow = nullptr;
+    SettingsDialog* settingsDialog = nullptr;
     QAction* showHideAction = nullptr;
     QMenu* trayMenu = new QMenu();
 
@@ -28,12 +30,14 @@ public:
 private:
     void setupSystemTray();
     void setupMenuActions();
+    void setupShowHideAction();
+    void setupExitAction();
+    void setupSettingsAction();
     QIcon getIconForTray(QString);
     void buildSystemTrayIcon();
     void initMainWindow();
 
 public Q_SLOTS:
-    void doBreak();
     void showOrHideWindow();
 
 private:

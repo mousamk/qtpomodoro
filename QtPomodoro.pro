@@ -14,6 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         app/myapplication.cpp \
+        ui/settingsdialog.cpp \
         ui/mainwindow.cpp \
         data/settings.cpp \
         entity/pomodoro.cpp \
@@ -33,9 +34,11 @@ HEADERS  += ui/mainwindow.h \
         entity/staterunning.h \
         entity/statewaitingtobreak.h \
         entity/statebreakrunning.h \
-        entity/statewaitingtorun.h
+        entity/statewaitingtorun.h \
+        ui/settingsdialog.h
 
-FORMS    += ui/mainwindow.ui
+FORMS    += ui/mainwindow.ui \
+        ui/settingsdialog.ui
 
 RESOURCES += \
     res/resources.qrc
