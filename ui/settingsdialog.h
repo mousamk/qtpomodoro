@@ -16,6 +16,20 @@ public:
     ~SettingsDialog();
 
 private:
+    void prepareConnections();
+
+protected:
+    void showEvent(QShowEvent* event);
+
+signals:
+    void dialogShown();
+
+private Q_SLOTS:
+    void loadSettingsToUi();
+    void saveSettingsFromUi();
+    void onOkClicked();
+
+private:
     Ui::SettingsDialog *ui;
 };
 
