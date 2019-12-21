@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>images/tray.png</file>
         <file>images/tray_break.png</file>
+        <file>images/next.png</file>
+        <file>images/pause.png</file>
+        <file>images/play.png</file>
     </qresource>
 </RCC>

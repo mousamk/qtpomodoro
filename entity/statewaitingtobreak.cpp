@@ -26,6 +26,11 @@ QString StateWaitingToBreak::getMainActionText()
     return "Break";
 }
 
+QString StateWaitingToBreak::getMainActionIcon()
+{
+    return "://images/play.png";
+}
+
 QString StateWaitingToBreak::getBackgroundColor()
 {
     return "#55FF55";

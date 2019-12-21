@@ -61,6 +61,11 @@ QString Pomodoro::getMainActionText()
     return state->getMainActionText();
 }
 
+QString Pomodoro::getMainActionIcon()
+{
+    return state->getMainActionIcon();
+}
+
 QString Pomodoro::getBackgroundColor()
 {
     return state->getBackgroundColor();

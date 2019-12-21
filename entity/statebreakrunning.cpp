@@ -26,6 +26,11 @@ QString StateBreakRunning::getMainActionText()
     return "Stop";
 }
 
+QString StateBreakRunning::getMainActionIcon()
+{
+    return "://images/pause.png";
+}
+
 QString StateBreakRunning::getBackgroundColor()
 {
     return "#55FF55";
