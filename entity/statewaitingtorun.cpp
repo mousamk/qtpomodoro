@@ -26,9 +26,14 @@ QString StateWaitingToRun::getMainActionText()
     return "Start";
 }
 
+QString StateWaitingToRun::getMainActionIcon()
+{
+    return "://images/play.png";
+}
+
 QString StateWaitingToRun::getBackgroundColor()
 {
-    return "#FF5555";
+    return "#FF0000";
 }
 
 QString StateWaitingToRun::getIconPath()

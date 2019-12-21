@@ -8,12 +8,13 @@ class StateRunning : public State
 {
 public:
     StateRunning(Pomodoro* pomodoro);
-    void goNextState();
-    void handleMainAction();
-    void skipToNext();
-    QString getMainActionText();
-    QString getBackgroundColor();
-    QString getIconPath();
+    void goNextState() override;
+    void handleMainAction() override;
+    void skipToNext() override;
+    QString getMainActionText() override;
+    QString getMainActionIcon() override;
+    QString getBackgroundColor() override;
+    QString getIconPath() override;
 };
 
 #endif // STATERUNNING_H

@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QTimer>
 
-
 class State;
 class StateWaitingToStart;
 class StateWaitingToRun;
@@ -12,15 +11,12 @@ class StateWaitingToBreak;
 class StateRunning;
 class StateBreakRunning;
 
-
 class Pomodoro: public QObject
 {
     Q_OBJECT
 
-
 public:
     Pomodoro(QObject* parent = nullptr);
-
 
 public slots:
     void goNextState();
@@ -29,10 +25,12 @@ public slots:
     void stop();
     void handleMainAction();
     void skipToNext();
+
+public:
     QString getMainActionText();
+    QString getMainActionIcon();
     QString getBackgroundColor();
     State* getState();
-
 
 private:
     void initTimer();
@@ -44,11 +42,9 @@ private:
     void finishBreak();
     int nextBreakMinutes();
 
-
 signals:
     void statusChanged();
     void timeUpdated(int min, int sec);
-
 
 private:
     int roundsDone = 0;
