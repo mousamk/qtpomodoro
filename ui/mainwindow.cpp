@@ -60,7 +60,7 @@ void MainWindow::initPomodoro()
 void MainWindow::updateStatus()
 {
     ui->backFrame->setStyleSheet(QString("background-color: ") + pomodoro->getBackgroundColor() + ";");
-    ui->btnAction->setText(pomodoro->getMainActionText());
+    ui->btnAction->setIcon(QIcon(pomodoro->getMainActionIcon()));
     emit statusChanged(pomodoro->getState());
 }
 
