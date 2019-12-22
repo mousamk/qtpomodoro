@@ -2,7 +2,6 @@
 #include "data/settings.h"
 #include <QDebug>
 #include <QDateTime>
-#include "statewaitingtostart.h"
 #include "staterunning.h"
 #include "statebreakrunning.h"
 #include "statewaitingtobreak.h"
@@ -23,7 +22,7 @@ void Pomodoro::initTimer()
 
 void Pomodoro::initState()
 {
-    state = new StateWaitingToStart(this);
+    state = new StateWaitingToRun(this);
 }
 
 void Pomodoro::setupConnections()

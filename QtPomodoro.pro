@@ -19,7 +19,6 @@ SOURCES += main.cpp\
         data/settings.cpp \
         entity/pomodoro.cpp \
         entity/state.cpp \
-        entity/statewaitingtostart.cpp \
         entity/staterunning.cpp \
         entity/statewaitingtobreak.cpp \
         entity/statebreakrunning.cpp \
@@ -30,7 +29,6 @@ HEADERS  += ui/mainwindow.h \
         data/settings.h \
         entity/pomodoro.h \
         entity/state.h \
-        entity/statewaitingtostart.h \
         entity/staterunning.h \
         entity/statewaitingtobreak.h \
         entity/statebreakrunning.h \

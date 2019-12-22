@@ -5,7 +5,6 @@
 #include <QTimer>
 
 class State;
-class StateWaitingToStart;
 class StateWaitingToRun;
 class StateWaitingToBreak;
 class StateRunning;
@@ -53,7 +52,6 @@ private:
     State* state = nullptr;
 
 
-    friend class StateWaitingToStart;
     friend class StateWaitingToRun;
     friend class StateWaitingToBreak;
     friend class StateRunning;
