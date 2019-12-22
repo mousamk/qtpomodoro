@@ -28,7 +28,7 @@ QString StateBreakRunning::getMainActionIcon()
 
 QString StateBreakRunning::getBackgroundColor()
 {
-    return "#55FF55";
+    return "#00FF00";
 }
 
 QString StateBreakRunning::getIconPath()
