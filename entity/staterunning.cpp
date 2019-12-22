@@ -21,11 +21,6 @@ void StateRunning::skipToNext()
     goNextState();
 }
 
-QString StateRunning::getMainActionText()
-{
-    return "Stop";
-}
-
 QString StateRunning::getMainActionIcon()
 {
     return "://images/pause.png";

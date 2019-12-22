@@ -21,11 +21,6 @@ void StateWaitingToRun::skipToNext()
     pomodoro->finishRun();
 }
 
-QString StateWaitingToRun::getMainActionText()
-{
-    return "Start";
-}
-
 QString StateWaitingToRun::getMainActionIcon()
 {
     return "://images/play.png";

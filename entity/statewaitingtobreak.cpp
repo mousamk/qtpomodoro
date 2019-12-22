@@ -21,11 +21,6 @@ void StateWaitingToBreak::skipToNext()
     pomodoro->finishBreak();
 }
 
-QString StateWaitingToBreak::getMainActionText()
-{
-    return "Break";
-}
-
 QString StateWaitingToBreak::getMainActionIcon()
 {
     return "://images/play.png";

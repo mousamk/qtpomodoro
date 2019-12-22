@@ -11,7 +11,6 @@ public:
     void goNextState() override;
     void handleMainAction() override;
     void skipToNext() override;
-    QString getMainActionText() override;
     QString getMainActionIcon() override;
     QString getBackgroundColor() override;
     QString getIconPath() override;
